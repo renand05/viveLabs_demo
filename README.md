@@ -125,3 +125,26 @@ Polling: preguntar cada cierto tiempo a ver si se ha completado la operación. N
 - Hebras o fibras: nos rendimos. Usamos llamadas síncronas, pero en vez de que bloqueen mi programa, doy opciones de por dónde se puede continuar la ejecución. En el caso de las hebras es el sistema operativo el que decide cómo planificar la ejecución, en el caso de la fibra es mi propio programa el que lo hace.
 - Sincronizar (p.ej. por futuros/promesa): nos rendimos definitivamente. Seguimos ejecutando como si nada mientras no necesitemos el resultado. En el momento que necesitemos el resultado, esperamos hasta tenerlo.
 - Retrollamadas: como interrupción, pero indico qué código hay que ejecutar en el momento de realizar la llamada asíncrona. Esto tiene el efecto de bifurcar el flujo de control y analizaremos esto en lo que resta de artículo.
+#3 - Algoritmos:
+1. Big O - little o notation.
+
+The code given is an example of an O(n) function. This is because we have to loop over every element that the function recieves to complete the calculation. We can trace this by following along the code and counting. We're doing a few calculations here.
+
+`{
+  def fun(n):
+    suma = 1
+    k = 0
+    i = 1
+    while i < n:
+      k = k + 2
+      i = i + 1
+      suma = suma + i
+  return suma
+}`
+
+We set suma to zero.
+We set k to zero.
+We set i to zero.
+all of those are constant in time operations so it grows as O(1).
+
+Next, we execute the loop. This number of operations changes depending on the size of n. If m is 10 we do it 10 times. If it's 75, we do 75 operations. In mathematical terms, this means that the time it takes to do something increases linearly with its input. We use a variable to represent the size of the input, which everyone in the industry calls n. So the loop function is O(n). Then, We increment k, i and suma by two in the case of k and one in the case of i and suma. All of this are O(1). So the dominant term is O(n). Therefore, little o is o(1). 
